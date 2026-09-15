@@ -21,6 +21,9 @@ python -m http.server 4173 --bind 127.0.0.1
 - `script.js`：年份与复制邮箱交互。
 - `assets/favicon.svg`：网站图标。
 - `assets/kevin-li.png`：本人提供的桌面插画照片，用于首页右侧展示。
+- `assets/social-avatar.jpg`：本人提供的微信 / QQ 头像，与照片错落组合展示。
+
+页脚收录 B 站、公众号“小晟随谈”和最新文章。公众号主页参数取自本人提供的文章页面；该主页在普通浏览器中可能要求微信环境或验证，因此同时保留直接文章入口。
 - `.nojekyll`：让 GitHub Pages 直接发布静态文件。
 
 修改文字直接编辑 HTML。新增项目可复制一个 `article.project`。项目链接使用完整 URL，站内资源使用相对路径，以兼容项目地址与自定义域名。网站无外部字体、运行时 API 或跟踪脚本。
