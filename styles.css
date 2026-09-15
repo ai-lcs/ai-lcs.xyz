@@ -121,10 +121,11 @@ nav a:hover,
 }
 .hero {
   display: grid;
-  grid-template-columns: 1fr 360px;
-  gap: 70px;
+  grid-template-columns: minmax(0, 480px) 360px;
+  justify-content: center;
+  gap: 64px;
   align-items: center;
-  padding-block: 62px;
+  padding-block: 42px 28px;
 }
 .eyebrow {
   font: 11px/1.6 var(--mono);
@@ -208,7 +209,7 @@ h1 {
 }
 .portrait {
   position: relative;
-  width: 330px;
+  width: 360px;
   justify-self: center;
   padding: 8px;
   border: 1px solid #426688;
@@ -224,6 +225,9 @@ h1 {
 }
 .section {
   padding-block: 74px;
+}
+#work {
+  padding-top: 46px;
 }
 .section-heading {
   display: flex;
@@ -490,7 +494,7 @@ h2 {
     grid-template-columns: 1fr 280px;
   }
   .portrait {
-    width: 260px;
+    width: 280px;
   }
   .wrap {
     width: calc(100% - 64px);
@@ -513,7 +517,7 @@ h2 {
 }
 @media (max-width: 700px) {
   .portrait {
-    width: 220px;
+    width: 240px;
     justify-self: start;
   }
   .sharing-list {
