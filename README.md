@@ -23,7 +23,11 @@ python -m http.server 4173 --bind 127.0.0.1
 - `assets/kevin-li.png`：本人提供的桌面插画照片，用于首页右侧展示。
 
 页脚收录 B 站、公众号“小晟随谈”和最新文章。公众号主页参数取自本人提供的文章页面；该主页在普通浏览器中可能要求微信环境或验证，因此同时保留直接文章入口。
+
 - `.nojekyll`：让 GitHub Pages 直接发布静态文件。
+- `CNAME`：自定义域名 `ai-lcs.xyz`，更新网站时必须保留。
+
+仓库当前文件仅保留现用页面和资源。预览截图、测试输出与依赖目录通过 `.gitignore` 排除，不上传到 GitHub。旧版页面可从 Git 提交历史追溯，不参与当前网站部署。
 
 修改文字直接编辑 HTML。新增项目可复制一个 `article.project`。项目链接使用完整 URL，站内资源使用相对路径，以兼容项目地址与自定义域名。网站无外部字体、运行时 API 或跟踪脚本。
 
@@ -31,17 +35,16 @@ python -m http.server 4173 --bind 127.0.0.1
 
 目标仓库：`ai-lcs/ai-lcs.xyz`。
 
-第一版以本地预览和仓库同步为主。需要发布预览时，在仓库 Settings → Pages 选择 Deploy from a branch → main → /(root)。默认项目地址为 https://ai-lcs.github.io/ai-lcs.xyz/ （以 Pages 设置实际显示为准）。
+线上地址：https://ai-lcs.xyz/ 。已绑定自定义域名并开启 HTTPS。
 
-域名审核完成后：
+GitHub Pages 从 `main` 分支的根目录直接部署，无需构建。日常更新流程：
 
-1. GitHub 个人 Settings → Pages → Add a domain，添加 `ai-lcs.xyz`，按提示在 DNS 添加 TXT 验证记录并保留。
-2. **本仓库** Settings → Pages → Custom domain 设置 `ai-lcs.xyz`。
-3. DNS 根域名 `@` 添加 GitHub 官方 A 记录：185.199.108.153、185.199.109.153、185.199.110.153、185.199.111.153；`www` 添加 CNAME 到 `ai-lcs.github.io`（不带路径）。先检查已有记录，避免冲突；不要使用通配符记录。
-4. 等待解析和证书签发，开启 Enforce HTTPS。检查根域名、www 跳转、图片与链接。
-5. GitHub 设置可能自动提交 CNAME 文件；本地继续工作前先 `git pull --ff-only`。
+1. 修改前先确认工作区状态，执行 `git pull --ff-only` 同步远端；如果分支分叉，先检查差异并合并，不强制覆盖远端。
+2. 编辑页面或资源，本地预览并核对；保留 `CNAME` 和 `.nojekyll`。
+3. 提交修改并执行 `git push origin main`。
+4. 在仓库 Actions 确认对应提交的 Pages 部署成功，再检查线上页面与资源是否更新。推送成功不等于部署完成。
 
-当前不添加 CNAME，以免审核阶段让预览跳转到未就绪的域名。不修改 `ai-lcs/ai-lcs.github.io` 仓库。
+不修改 `ai-lcs/ai-lcs.github.io` 原博客仓库。域名解析与验证记录独立于页面文件，日常内容更新不需要调整 DNS。
 
 官方文档：https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
 
