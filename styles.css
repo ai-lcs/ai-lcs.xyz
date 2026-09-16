@@ -353,6 +353,19 @@ h2 {
   color: #b9c7db;
   margin-top: 3px;
 }
+.award strong.award-pair {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+.award strong.award-pair span {
+  display: inline;
+  font-size: inherit;
+  color: inherit;
+  margin: 0;
+  white-space: nowrap;
+}
 .certificates {
   margin-top: 32px;
   padding: 22px 25px;
@@ -671,6 +684,9 @@ h2 {
   .award strong span {
     display: inline;
     margin-left: 13px;
+  }
+  .award strong.award-pair {
+    justify-content: flex-start;
   }
   .about {
     grid-template-columns: 1fr;
